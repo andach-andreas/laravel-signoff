@@ -1,8 +1,8 @@
 {
-    "name": "andach-limited/laravel-signoff",
+    "name": "andach/laravel-signoff",
     "description": "This is a package to allow for Laravel models to be 'signed off' as approved.",
     "keywords": [
-        "andach-limited",
+        "andach",
         "laravel",
         "laravel-signoff"
     ],

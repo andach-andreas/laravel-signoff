@@ -2,6 +2,7 @@
 
 namespace Andach\LaravelSignoff;
 
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Andach\LaravelSignoff\Commands\LaravelSignoffCommand;
@@ -17,9 +18,17 @@ class LaravelSignoffServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-signoff')
-            ->hasConfigFile()
-            ->hasViews()
             ->hasMigration('create_laravel-signoff_table')
-            ->hasCommand(LaravelSignoffCommand::class);
+            ->hasInstallCommand(function(InstallCommand $command) {
+                $command
+                    ->startWith(function (InstallCommand $command) {
+                        $command->info('Hello, and welcome to my great new package!');
+                    })
+                    ->publishMigrations()
+                    ->askToStarRepoOnGitHub('andach-limited/laravel-signoff')
+                    ->endWith(function (InstallCommand $command) {
+                        $command->info('Have a great day!');
+                    });
+            });
     }
 }

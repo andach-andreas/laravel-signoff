@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Database\Factories;
+namespace Andach\LaravelSignoff\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

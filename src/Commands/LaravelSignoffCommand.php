@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Andach\LaravelSignoff\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelSignoffCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-signoff';
 
     public $description = 'My command';
 

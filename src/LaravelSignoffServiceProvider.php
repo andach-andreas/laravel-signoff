@@ -21,6 +21,7 @@ class LaravelSignoffServiceProvider extends PackageServiceProvider
             ->hasMigration('create_signoff_table')
             ->hasRoute('web')
             ->hasConfigFile()
+            ->hasViews()
             ->hasInstallCommand(function(InstallCommand $command) {
                 $command
                     ->startWith(function (InstallCommand $command) {

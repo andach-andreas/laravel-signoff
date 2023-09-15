@@ -2,8 +2,8 @@
 
 namespace Andach\LaravelSignoff\Controllers;
 
+use Andach\LaravelSignoff\Interfaces\Signoffable;
 use App\Http\Controllers\Controller;
-use App\Interfaces\Signoffable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -40,7 +40,7 @@ class SignoffController extends Controller
         $args['id']          = $id;
         $args['signoffable'] = $this->getModel($object, $id);
 
-        return view('main.signoff.show', $args);
+        return view(config('signoff.views.show'), $args);
     }
 
     private function getModel(string $object, string $id): Signoffable
@@ -56,7 +56,7 @@ class SignoffController extends Controller
         }
 
         if (!new $model() instanceof Signoffable) {
-            throw new \Exception('The model "'.$modelName.'" implement the Signoffable interface.');
+            throw new \Exception('The model "'.$modelName.'" must implement the Signoffable interface.');
         }
 
         // Find the model by its ID

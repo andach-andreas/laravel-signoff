@@ -23,14 +23,21 @@ You can publish the migrations with:
 php artisan signoff:install
 ```
 
-## Usage
-
-To use, simply add the `MorphToSignoff` trait to the model you want to be able to sign off.
+And if desired, can publish the views with:
 
 ```
+php artisan vendor:publish --tag=signoff-views
+```
+
+## Usage
+
+To use, simply add the `MorphToSignoff` trait and `Signoffable` interface to the model you want to be able to sign off.
+
+```
+use Andach\LaravelSignoff\Interfaces\Signoffable;
 use Andach\Signoff\Traits\MorphToSignoff;
 
-class MyModel extends Model
+class MyModel extends Model implements Signoffable
 {
     use MorphToSignoff;
 

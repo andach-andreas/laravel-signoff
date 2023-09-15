@@ -19,11 +19,14 @@ class LaravelSignoffServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-signoff')
             ->hasMigration('create_signoff_table')
+            ->hasRoute('web')
+            ->hasConfigFile()
             ->hasInstallCommand(function(InstallCommand $command) {
                 $command
                     ->startWith(function (InstallCommand $command) {
                         $command->info('Hello, and welcome to my great new package!');
                     })
+                    ->publishConfigFile()
                     ->publishMigrations()
                     ->askToStarRepoOnGitHub('andach-limited/laravel-signoff')
                     ->endWith(function (InstallCommand $command) {

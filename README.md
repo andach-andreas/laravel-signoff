@@ -14,7 +14,7 @@ It integrates with https://github.com/szimek/signature_pad to provide a simple i
 You can install the package via composer:
 
 ```bash
-composer require andach-limited/laravel-signoff
+composer require andach/laravel-signoff
 ```
 
 You can publish the migrations with:

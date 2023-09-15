@@ -9,7 +9,7 @@ trait MorphToSignoff
 {
     public function signoff(): MorphOne
     {
-        return $this->morphOne('App\Models\Signoff', 'signoffable');
+        return $this->morphOne('Andach\LaravelSignoff\Models\Signoff', 'signoffable');
     }
 
     public function doFirstSignoff(): bool

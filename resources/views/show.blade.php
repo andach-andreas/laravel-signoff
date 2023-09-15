@@ -26,7 +26,9 @@
             <x-form :action="route('signoff.second-post', [$object, $id])" class="e-signpad">
                 <x-form-input type="hidden" name="object" :value="$object" floating />
                 <x-form-input type="hidden" name="id" :value="$id" floating />
-                <x-andach-signature-pad/>
+                @if (config('signoff.enable_signature_pad'))
+                    @include('signoff::signature-pad')
+                @endif
                 <x-form-submit class="sign-pad-button-submit">Provide Second Signoff</x-form-submit>
             </x-form>
         @else
@@ -35,9 +37,13 @@
             <x-form :action="route('signoff.first-post', [$object, $id])" class="e-signpad">
                 <x-form-input type="hidden" name="object" :value="$object" floating />
                 <x-form-input type="hidden" name="id" :value="$id" floating />
-                <x-andach-signature-pad/>
+                @if (config('signoff.enable_signature_pad'))
+                    @include('signoff::signature-pad')
+                @endif
                 <x-form-submit class="sign-pad-button-submit">Provide Signoff</x-form-submit>
             </x-form>
         @endif
     </x-andach-card>
+
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 @endsection

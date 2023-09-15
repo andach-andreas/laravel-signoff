@@ -29,6 +29,16 @@ And if desired, can publish the views with:
 php artisan vendor:publish --tag=signoff-views
 ```
 
+### Signature Pad
+
+This package integrates with https://github.com/szimek/signature_pad. To use, you should enable the relevant option in the config file and include the Javascript. 
+
+```
+npm install --save signature_pad
+```
+
+And then include the javascript in ./js/app.js into your ./resources/js/app.js file. 
+
 ## Usage
 
 To use, simply add the `MorphToSignoff` trait and `Signoffable` interface to the model you want to be able to sign off.

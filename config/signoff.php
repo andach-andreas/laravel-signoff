@@ -7,4 +7,6 @@ return [
     'views' => [
         'show' => 'signoff::show',
     ],
+
+    'enable_signature_pad' => false,
 ];
